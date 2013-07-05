@@ -52,7 +52,7 @@ public class UserBoxTest {
         //When
         boolean result = userBoxTester.statusOnline();
         //Then
-        assertFalse(result);
+        assertTrue(result);
     }
     @Test
     public void getPriceValueTest()
@@ -69,10 +69,20 @@ public class UserBoxTest {
     {
         //Given
         driver.navigate().to("https://itcrowd.pl/vop/");
-        //When
-        String actualDescription = userBoxTester.getDescriptionText();
-        boolean result = actualDescription.startsWith(" I am Nature Born Physic");
+       //When
+        String userDescription = userBoxTester.getDescriptionText();
         //Then
-        assertTrue(result);
+        assertEquals("I am Nature Born Psychic and Spiritual Messenger, Contact me for Honest reading.",userDescription);
     }
+    @Test
+    public void getNameInfoTest()
+    {
+        //Given
+        driver.navigate().to("https://itcrowd.pl/vop/");
+        //When
+        String userName = userBoxTester.getNameInfo();
+        //Then
+        assertEquals("Psychic7",userName);
+    }
+
 }

@@ -11,7 +11,7 @@ class UserBox {
     @FindBy(css = ".btn-info")
     private WebElement email;
 
-    @FindBy(className = "physicNickname")
+    @FindBy(css = "[id$=':nickname1']")
     private WebElement name;
 
     @FindBy(css = "[id$=':price']")
@@ -56,7 +56,7 @@ class UserBox {
     {
         String actualStatus = status.getText();
 
-        if(actualStatus.equals("Online"))
+        if(actualStatus.equals("Offline"))
             return true;
         else
             return false;
@@ -68,6 +68,10 @@ class UserBox {
     public String getPriceValue()
     {
         return price.getText();
+    }
+    public String getNameInfo()
+    {
+        return name.getText();
     }
 
 }
